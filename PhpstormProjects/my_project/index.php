@@ -2,9 +2,11 @@
 $title = "";
 $total = 0;
 $items = [];
+$apiKey = 'AIzaSyAKxQjVFubSOsJ0_pwR0WtF90tERB431Pg';
+$cx = '807461ca97c7148d4';
 
 if (isset($_GET["search"]) && !empty($_GET["search"])) {
-    $json = file_get_contents("https://www.googleapis.com/customsearch/v1?key=AIzaSyAJGaw8xbkehi95j_DGMWTDiGtA7lnZ9rI&cx=b5f4e47c12f3f4f62&q=" . $_GET["search"]);
+    $json = file_get_contents("https://www.googleapis.com/customsearch/v1?key=$apiKey&cx=$cx&q=" . urlencode($_GET["search"]));
     $data = json_decode($json, true);
 
     if ($json !== false) {
